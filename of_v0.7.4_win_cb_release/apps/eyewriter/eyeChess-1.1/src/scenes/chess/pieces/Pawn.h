@@ -8,14 +8,14 @@ class Pawn : public ChessPiece
 protected:
     bool isFirstMove;
 public:
-    Pawn( int file, int row, bool isWhite) : ChessPiece( file, row, isWhite)
+    Pawn(int file, int row, bool isWhite) : ChessPiece( file, row, isWhite)
     {
         if(isWhite)
             imagePath = "images/PawnW.png";
         else
             imagePath = "images/PawnB.png";
     }
-    bool canMove(int newFile, int newRow);
+    bool canMove( int** places, int newFile, int newRow);
 };
 
 #endif // PAWN_H_INCLUDED

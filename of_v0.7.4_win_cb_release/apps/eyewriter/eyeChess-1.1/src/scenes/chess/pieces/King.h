@@ -6,7 +6,7 @@
 class King : public ChessPiece
 {
 public:
-    King(int file, int row, bool isWhite) : ChessPiece( file, row, isWhite)
+    King( int file, int row, bool isWhite) : ChessPiece( file, row, isWhite)
     {
         if(isWhite)
             imagePath = "images/KingW.png";

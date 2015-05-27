@@ -705,19 +705,22 @@
 		<Unit filename="src/scenes/TestingScene.h">
 			<Option virtualFolder="src/scenes" />
 		</Unit>
-		<Unit filename="src/scenes/chess/ChessBoard.cpp">
-			<Option virtualFolder="src/scenes/chess/" />
-		</Unit>
-		<Unit filename="src/scenes/chess/ChessBoard.h">
-			<Option virtualFolder="src/scenes/chess/" />
-		</Unit>
 		<Unit filename="src/scenes/chess/ChessScene.cpp">
 			<Option virtualFolder="src/scenes/chess/" />
 		</Unit>
 		<Unit filename="src/scenes/chess/ChessScene.h">
 			<Option virtualFolder="src/scenes/chess/" />
 		</Unit>
+		<Unit filename="src/scenes/chess/pieces/Bishop.cpp">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
 		<Unit filename="src/scenes/chess/pieces/Bishop.h">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
+		<Unit filename="src/scenes/chess/pieces/ChessBoard.cpp">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
+		<Unit filename="src/scenes/chess/pieces/ChessBoard.h">
 			<Option virtualFolder="src/scenes/chess/pieces/" />
 		</Unit>
 		<Unit filename="src/scenes/chess/pieces/ChessPiece.cpp">
@@ -726,7 +729,13 @@
 		<Unit filename="src/scenes/chess/pieces/ChessPiece.h">
 			<Option virtualFolder="src/scenes/chess/pieces/" />
 		</Unit>
+		<Unit filename="src/scenes/chess/pieces/King.cpp">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
 		<Unit filename="src/scenes/chess/pieces/King.h">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
+		<Unit filename="src/scenes/chess/pieces/Knight.cpp">
 			<Option virtualFolder="src/scenes/chess/pieces/" />
 		</Unit>
 		<Unit filename="src/scenes/chess/pieces/Knight.h">
@@ -738,7 +747,13 @@
 		<Unit filename="src/scenes/chess/pieces/Pawn.h">
 			<Option virtualFolder="src/scenes/chess/pieces/" />
 		</Unit>
+		<Unit filename="src/scenes/chess/pieces/Queen.cpp">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
 		<Unit filename="src/scenes/chess/pieces/Queen.h">
+			<Option virtualFolder="src/scenes/chess/pieces/" />
+		</Unit>
+		<Unit filename="src/scenes/chess/pieces/Rook.cpp">
 			<Option virtualFolder="src/scenes/chess/pieces/" />
 		</Unit>
 		<Unit filename="src/scenes/chess/pieces/Rook.h">
@@ -750,7 +765,7 @@
 		<Unit filename="src/scenes/eyePlotter/DrawingScene.h">
 			<Option virtualFolder="src/scenes/eyePlotter" />
 		</Unit>
-		<Unit filename="src/scenes/eyePlotter/SpecialPolyline.cpp">
+		<Unit filename="src/scenes/eyePlotter/strokes/SpecialPolyline.cpp">
 			<Option virtualFolder="src/scenes/eyePlotter/strokes/" />
 		</Unit>
 		<Unit filename="src/scenes/eyePlotter/strokes/SpecialPolyline.h">

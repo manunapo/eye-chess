@@ -1,7 +1,6 @@
-#include "ChessBoard.h"
+#include "MatrixBoard.h"
 
-
-ChessBoard::ChessBoard()
+MatrixBoard::MatrixBoard()
 {
     bool white = true;
     bool black = false;
@@ -38,19 +37,12 @@ ChessBoard::ChessBoard()
     }
 }
 
-bool ChessBoard::isFree(int f, int r)
+ChessPiece* MatrixBoard::get(int f, int r)
 {
-    return board[f][r] == 0;
+    return board[f][r];
 }
 
-void ChessBoard::movePiece(int f, int r, int newF, int newR)
+void MatrixBoard::update(int f, int r, ChessPiece* cp)
 {
-    board[newF][newR] = board[f][r];
-    if(board[newF][newR] != 0)
-        board[newF][newR]->updateBox(newF, newR);
-}
-
-string ChessBoard::getImage(int f, int r)
-{
-    return board[f][r]->getImage();
+    board[f][r] = cp;
 }

@@ -40,7 +40,6 @@ public:
     float   getX();
 
     void    relocate(float newX, float newY);
-
     int     fromString(const std::string& s);
     void    draw(string s);
     int     numTriggers;

@@ -89,7 +89,8 @@ void ChessScene::update(float mouseX, float mouseY)
         {
             if(boxButtons[i][j].update(mx, my))
             {
-                printf("hola %i - %i",i,j);
+                cout << "selected: " << i << "-" << j;
+                board->boxSelected( boxButtons, i, j);
             }
         }
     }
@@ -105,6 +106,7 @@ void ChessScene::draw()
     ofPushStyle();
     ofFill();
     ofRect(0,0, rectW, rectH);
+
     if(iniY == 0)
         ofRect(iniX + w,iniY,rectW,rectH);
     else
@@ -114,8 +116,26 @@ void ChessScene::draw()
     ofPushStyle();
     ofSetLineWidth(1.0);
     ofEnableAlphaBlending();
-    ofSetColor(0, 0, 0);
 
+    bool black = true;
+    for(int x = 0; x < 8; x++)
+    {
+        for(int y = 0; y < 8; y++)
+        {
+            if(black)
+            {
+                ofSetColor(20, 20, 20);
+            }
+            else
+            {
+                ofSetColor(200, 200, 200);
+            }
+            ofRect( iniX + x*chessBoxSize, iniY + y*chessBoxSize, chessBoxSize, chessBoxSize);
+            black = !black;
+        }
+        black = !black;
+    }
+/*
     ///drawing the grid
     for(int x = 0; x < 9; x++)
     {
@@ -130,7 +150,7 @@ void ChessScene::draw()
     ofPopStyle();
     ///end drawing the grid-----
 
-
+*/
     for(int i = 0; i < drawableButtons.size(); i++)
     {
         drawableButtons[i]->draw();

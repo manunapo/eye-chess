@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include <iostream>
 #include "buttonStateManager.h"
 #include "buttonState.h"
 
@@ -9,7 +10,7 @@
 #include "ButtonTrigger.h"
 
 #include "BaseScene.h"
-#include "ChessBoard.h"
+#include "pieces/ChessBoard.h"
 
 class ChessScene : public BaseScene
 {

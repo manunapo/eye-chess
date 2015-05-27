@@ -1,6 +1,6 @@
 #include "ChessPiece.h"
 
-ChessPiece::ChessPiece(int file, int row, bool isWhite)
+ChessPiece::ChessPiece( int file, int row, bool isWhite)
 {
     myFile = file;
     myRow = row;
