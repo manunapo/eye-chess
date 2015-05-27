@@ -67,11 +67,13 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
             {
                 isOtherColor = isOtherColor && !board[secondSelectedF][secondSelectedR]->isWhite();
                 canMove = canMove && isOtherColor;
+                cout << "Not free" << endl;
             }
 
             if(canMove)
             {
                 board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
+                board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
                 ButtonTrigger aux = buttons[secondSelectedF][secondSelectedR];
                 buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
                 buttons[firstSelectedF][firstSelectedR] = aux;
@@ -86,6 +88,10 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
         {
             cout << "First box invalid" << endl;
         }
+        firstSelectedF = -1;
+        firstSelectedR = -1;
+        secondSelectedF = -1;
+        secondSelectedR = -1;
 
     }
     else

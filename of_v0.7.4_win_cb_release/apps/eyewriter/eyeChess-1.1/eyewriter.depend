@@ -6436,9 +6436,10 @@
 	"pieces/Pawn.h"
 	<string>
 
-1432737243 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.h
+1432759024 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.h
 	<string>
 	<cmath>
+	<iostream>
 
 1432735082 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\rook.h
 	"ChessPiece.h"
@@ -6516,7 +6517,7 @@
 1432735183 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.cpp
 	"ChessPiece.h"
 
-1432737267 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\pawn.cpp
+1432759966 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\pawn.cpp
 
 1432597970 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chesstestapp.cpp
 	"ChessTestApp.h"
@@ -6594,7 +6595,7 @@
 	"Pawn.h"
 	"ButtonTrigger.h"
 
-1432736665 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.cpp
+1432760050 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.cpp
 	"ChessBoard.h"
 
 1432733168 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.cpp
