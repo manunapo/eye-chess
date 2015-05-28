@@ -33,6 +33,7 @@ public:
     int     getNumTriggers();
     void    setFlashLength(float timeF);
     bool    update(float xIn, float yIn);
+    void    changeImage(string path);
 
     void    sizeChanged();
     void    draw(float opacity = 255);

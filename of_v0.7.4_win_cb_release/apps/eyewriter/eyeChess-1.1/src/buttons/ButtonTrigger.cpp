@@ -165,6 +165,11 @@ void ButtonTrigger::updateTexture()
 
 }
 
+void ButtonTrigger::changeImage(string path)
+{
+    imagePath = path;
+}
+
 void ButtonTrigger::draw(float opacity)
 {
     updateTexture();

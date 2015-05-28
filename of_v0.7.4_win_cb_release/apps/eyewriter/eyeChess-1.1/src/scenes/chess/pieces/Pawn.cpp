@@ -21,10 +21,11 @@ bool Pawn::canMove( int** places, int newFile, int newRow)
         }
         else
         {
-            if((aux == 1)&& (newRow-myRow == 1))
+            if((aux == 1) && (abs(newRow - myRow) == 1))
             {
                 //Diferent colors
                 toR = places[newFile][newRow] != places[myFile][myRow];
+                toR = toR && places[newFile][newRow] != 0;
             }
         }
 
@@ -41,10 +42,12 @@ bool Pawn::canMove( int** places, int newFile, int newRow)
         }
         else
         {
-            if((aux == 1) && (myRow - newRow == 1))
+            if((aux == 1) && (abs(myRow - newRow) == 1))
             {
                 //Diferent colors
                 toR = places[newFile][newRow] != places[myFile][myRow];
+                toR = toR && places[newFile][newRow] != 0;
+                cout << "diferent colors: " << toR;
             }
         }
     }

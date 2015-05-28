@@ -65,19 +65,37 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
             bool isFree = board[secondSelectedF][secondSelectedR] == 0;
             if(!isFree)
             {
-                isOtherColor = isOtherColor && !board[secondSelectedF][secondSelectedR]->isWhite();
+                isOtherColor = isOtherColor != board[secondSelectedF][secondSelectedR]->isWhite();
                 canMove = canMove && isOtherColor;
                 cout << "Not free" << endl;
             }
 
             if(canMove)
             {
-                board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
-                board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
+                cout << "caaaaaaaaaan " << endl;
                 ButtonTrigger aux = buttons[secondSelectedF][secondSelectedR];
-                buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
-                buttons[firstSelectedF][firstSelectedR] = aux;
-                board[firstSelectedF][firstSelectedR] = 0;
+                if(board[secondSelectedF][secondSelectedR] != 0)
+                {
+                    bool canEatSecond = board[secondSelectedF][secondSelectedR]->isWhite() != board[firstSelectedF][firstSelectedR]->isWhite();
+
+                    if(canEatSecond)
+                    {
+                        aux.changeImage("images/Free.png");
+                        board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
+                        board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
+                        buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
+                        buttons[firstSelectedF][firstSelectedR] = aux;
+                        board[firstSelectedF][firstSelectedR] = 0;
+                    }
+                }
+                else
+                {
+                    board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
+                    board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
+                    buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
+                    buttons[firstSelectedF][firstSelectedR] = aux;
+                    board[firstSelectedF][firstSelectedR] = 0;
+                }
                 firstSelectedF = -1;
                 firstSelectedR = -1;
                 secondSelectedF = -1;
