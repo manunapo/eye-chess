@@ -17,6 +17,8 @@ public:
 
     //do no check if the box is available, that is responsability of the board.
     virtual bool canMove( int** places, int newFile, int newRow){}
+    bool isFreeRoadTo( int** places, int newFile, int newRow);
+
     void updateBox( int newF, int newR);
     bool isWhite();
     string getImage();
