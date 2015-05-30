@@ -13,6 +13,7 @@ public:
         else
             imagePath = "images/RookB.png";
     }
+    bool canMove( int** places, int newFile, int newRow);
 };
 
 #endif // ROOK_H_INCLUDED

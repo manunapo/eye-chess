@@ -13,6 +13,7 @@ public:
         else
             imagePath = "images/KnightB.png";
     }
+    bool canMove( int** places, int newFile, int newRow);
 };
 
 #endif // KNIGHT_H_INCLUDED

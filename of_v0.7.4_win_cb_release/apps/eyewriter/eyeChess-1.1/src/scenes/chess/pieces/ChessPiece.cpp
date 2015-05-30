@@ -23,12 +23,27 @@ string ChessPiece::getImage()
     return imagePath;
 }
 
+bool ChessPiece::isRoadVertical(int newFile, int newRow)
+{
+    return myRow == newRow;
+}
+
+bool ChessPiece::isRoadHorizontal(int newFile, int newRow)
+{
+    return myFile == newFile;
+}
+
+bool ChessPiece::isRoadDiagonal(int newFile, int newRow)
+{
+    return (abs(myFile - newFile) == abs(myRow - newRow));
+}
+
 bool ChessPiece::isFreeRoadTo( int** places, int newFile, int newRow)
 {
     bool is = true;
-    bool isVertical = myRow == newRow;
-    bool isHorizontal = myFile == newFile;
-    bool isDiagonal = (abs(myFile - newFile) == abs(myRow - newRow));
+    bool isVertical = isRoadVertical( newFile, newRow);
+    bool isHorizontal = isRoadHorizontal( newFile, newRow);
+    bool isDiagonal = isRoadDiagonal( newFile, newRow);
     is = isVertical || isHorizontal || isDiagonal;
     if(isVertical)
     {
@@ -55,7 +70,7 @@ bool ChessPiece::isFreeRoadTo( int** places, int newFile, int newRow)
         }
         for(int i = startR; is && i < endR; i ++)
         {
-            is = places[newFile][is] == 0;
+            is = places[newFile][i] == 0;
         }
     }
     if(isDiagonal)

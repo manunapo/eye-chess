@@ -13,7 +13,7 @@ public:
         else
             imagePath = "images/BishopB.png";
     }
-    //bool canMove( int** places, int newFile, int newRow);
+    bool canMove( int** places, int newFile, int newRow);
 };
 
 #endif // BISHOP_H_INCLUDED

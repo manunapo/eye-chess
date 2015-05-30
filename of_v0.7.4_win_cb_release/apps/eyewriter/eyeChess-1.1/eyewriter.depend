@@ -6436,24 +6436,24 @@
 	"pieces/Pawn.h"
 	<string>
 
-1432928673 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.h
+1433010198 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.h
 	<string>
 	<cmath>
 	<iostream>
 
-1432735082 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\rook.h
+1433009358 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\rook.h
 	"ChessPiece.h"
 
-1432735121 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.h
+1433009360 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.h
 	"ChessPiece.h"
 
-1432735082 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\queen.h
+1433009360 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\queen.h
 	"ChessPiece.h"
 
-1432735131 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\king.h
+1433009360 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\king.h
 	"ChessPiece.h"
 
-1432928756 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.h
+1433009168 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.h
 	"ChessPiece.h"
 
 1432736800 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\pawn.h
@@ -6514,10 +6514,10 @@
 1432731439 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessscene.cpp
 	"ChessScene.h"
 
-1432937032 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.cpp
+1433010436 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.cpp
 	"ChessPiece.h"
 
-1432937372 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\pawn.cpp
+1432937669 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\pawn.cpp
 
 1432597970 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chesstestapp.cpp
 	"ChessTestApp.h"
@@ -6598,7 +6598,7 @@
 1432852912 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.cpp
 	"ChessBoard.h"
 
-1432928737 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.cpp
+1433009194 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.cpp
 
 1432734259 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\matrixboard.h
 	"Rook.h"
@@ -6608,14 +6608,13 @@
 	"Bishop.h"
 	"Pawn.h"
 
-1432733168 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\king.cpp
+1433009978 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\king.cpp
 
-1432733168 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.cpp
+1433009417 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.cpp
 
-1432733168 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\queen.cpp
+1433010158 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\queen.cpp
 
-1432733218 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\rook.cpp
-	"Rook.h"
+1433010102 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\rook.cpp
 
 1432734389 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\matrixboard.cpp
 	"MatrixBoard.h"
