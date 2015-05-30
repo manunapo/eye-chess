@@ -7,6 +7,13 @@ Operation::Operation(char theType)
     y = 0;
 }
 
+Operation::Operation(char theType, float nx, float ny)
+{
+    type = theType;
+    x = nx;
+    y = ny;
+}
+
 void Operation::setCoords(float newX, float newY)
 {
     x = newX;

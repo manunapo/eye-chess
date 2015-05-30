@@ -10,6 +10,7 @@ private:
 
 public:
     Operation(char theType);
+    Operation(char theTypem, float nx, float ny);
     void setCoords(float newX, float newY);
     char getType();
     float getX();

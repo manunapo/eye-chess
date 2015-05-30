@@ -6408,7 +6408,7 @@
 	<queue>
 	"Operation.h"
 
-1431633562 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operation.h
+1433018400 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operation.h
 
 1432598011 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chesstestapp.h
 	"BaseScene.h"
@@ -6466,13 +6466,15 @@
 1431634125 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.cpp
 	"CommHandler.h"
 
-1431632685 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.h
+1433019433 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.h
 	<stdio.h>
 	<tchar.h>
-	<string>
 	<iostream>
+	<string>
 	<stdlib.h>
+	<sstream>
 	<Windows.h>
+	<cstdlib>
 	"serial/SerialClass.h"
 	"Operations.h"
 
@@ -6481,7 +6483,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1431633558 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operation.cpp
+1433018396 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operation.cpp
 	"Operation.h"
 
 1431633353 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operations.cpp
@@ -6490,10 +6492,11 @@
 1431610223 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\serial\serial.cpp
 	"SerialClass.h"
 
-1432559899 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\main.cpp
+1433017050 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\main.cpp
 	"ofMain.h"
 	"TestApp.h"
 	"ofAppGlutWindow.h"
+	"comm/CommHandler.h"
 
 1361276488 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\libs\openframeworks\app\ofappglutwindow.h
 	"ofConstants.h"
@@ -6610,7 +6613,7 @@
 
 1433009978 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\king.cpp
 
-1433009417 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.cpp
+1433010635 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\knight.cpp
 
 1433010158 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\queen.cpp
 

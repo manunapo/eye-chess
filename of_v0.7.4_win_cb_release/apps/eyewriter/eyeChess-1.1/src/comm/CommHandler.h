@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <tchar.h>
-#include <string>
 #include <iostream>
+#include <string>
 #include <stdlib.h>
+#include <sstream>
 #include <Windows.h>
+#include <cstdlib>
 #include "serial/SerialClass.h"
 #include "Operations.h"
 

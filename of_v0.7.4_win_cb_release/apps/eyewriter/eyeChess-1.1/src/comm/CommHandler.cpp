@@ -2,7 +2,7 @@
 
 CommHandler::CommHandler()
 {
-    SP = new Serial("COM4");
+    SP = new Serial("COM3");
     operations = new Operations();
 
     if (SP->IsConnected())
@@ -12,15 +12,18 @@ CommHandler::CommHandler()
 
 DWORD WINAPI check(LPVOID lpParameter)
 {
+    Wrapper* wrapper = (Wrapper*) lpParameter;
+    Serial* SP = (Serial*) wrapper->SP;
+    Operations* Ops = (Operations*) wrapper->Ops;
+
     char data = 'S';
-	int dataLength = 2;
+    int dataLength = sizeof(char);
+    SP->WriteData( &data, dataLength);
+
 	int readResult = 0;
+
     while(true)
     {
-        Wrapper* wrapper = (Wrapper*) lpParameter;
-        Serial* SP = (Serial*) wrapper->SP;
-        Operations* Ops = (Operations*) wrapper->Ops;
-
         readResult = SP->ReadData( &data,dataLength);
         if(readResult == -1)
         {
@@ -31,28 +34,34 @@ DWORD WINAPI check(LPVOID lpParameter)
             printf("Data read %c \n",data);
             if(Ops->hasOperation())
             {
-                char data = Ops->getNextOperation()->getType();
-                SP->WriteData( &data, dataLength);
+                Operation* op = Ops->getNextOperation();
+                char data = op->getType();
+                if( data != 'C')
+                {
+                    SP->WriteData( &data, dataLength);
+                }
+                else
+                {
+                    int x = op->getX() * 10000;
+                    int y = op->getY() * 10000;
+                    stringstream ss;
+                    ss << x;
+                    string sx = ss.str();
+                    ss << y;
+                    string sy = ss.str();
+                }
             }
         }
         Sleep(500);
     }
 }
 
-
-
 void CommHandler::startTransmission()
 {
-    char data = 'S';
-	int dataLength = 1;
-	int readResult = 0;
-
-	SP->WriteData( &data, dataLength);
 	Wrapper* wrapped = new Wrapper(SP, operations);
-
     checkThreadHandle = CreateThread( 0, 0, check, wrapped, 0, &checkThreadId);
-    data = 'Z';
-    Operation* op = new Operation(data);
+
+    Operation* op = new Operation( 'C', 50, 50);
     operations->addOperation(op);
 }
 
