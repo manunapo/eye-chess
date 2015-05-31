@@ -70,35 +70,103 @@ void CommHandler::startTransmission()
 {
 	Wrapper* wrapped = new Wrapper(SP, operations);
     checkThreadHandle = CreateThread( 0, 0, check, wrapped, 0, &checkThreadId);
-
+/*
+    Operation* op = new Operation( 'Z');
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+/*
     Operation* op = new Operation( 'Z');
     operations->addOperation(op);
 
-    op = new Operation( 'C', 200);
+    op = new Operation( 'C', 25);
     operations->addOperation(op);
     op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 25);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 50);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 50);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    //----
+    op = new Operation( 'C', 75);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 75);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 100);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 100);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    //--
+    op = new Operation( 'C', 125);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 125);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 150);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 150);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    //--
+    op = new Operation( 'C', 175);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 175);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
     operations->addOperation(op);
 
     op = new Operation( 'C', 200);
     operations->addOperation(op);
     op = new Operation( 'C', 200);
     operations->addOperation(op);
-
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
+    //--
 
     op = new Operation( 'A');
-    operations->addOperation(op);
+    operations->addOperation(op);*/
 }
 
 void CommHandler::stopTransmission()
 {
     TerminateThread( checkThreadHandle, 1);
+}
+
+Operations* CommHandler::getOperations()
+{
+    return operations;
 }

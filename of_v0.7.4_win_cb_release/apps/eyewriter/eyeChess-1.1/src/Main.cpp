@@ -13,8 +13,8 @@ int main( )
     // this kicks off the running of my app
     // can be OF_WINDOW or OF_FULLSCREEN
     // pass in width and height too:
-    CommHandler* cm = new CommHandler();
-    cm->startTransmission();
+    //CommHandler* cm = new CommHandler();
+    //cm->startTransmission();
     ofRunApp( new TestApp());
 
 }

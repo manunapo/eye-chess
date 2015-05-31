@@ -9,6 +9,7 @@
 #include "Bishop.h"
 #include "Pawn.h"
 #include "ButtonTrigger.h"
+#include "comm/map/MachineChessMapper.h"
 
 using namespace std;
 class ChessBoard
@@ -19,6 +20,7 @@ protected:
     int firstSelectedR;
     int secondSelectedF;
     int secondSelectedR;
+    MachineChessMapper* mapper;
 public:
     ChessBoard();
     bool isFree(int f, int r);

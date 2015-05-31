@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons\;src\;addons\ofxOpenCv\src\;src\scenes\eyePlotter\;addons\ofxOsc\libs\oscpack\src\osc\;addons\ofxOpenCv\libs\opencv\include\opencv\;src\utils\ofxControlPanel\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;src\tracking\;addons\ofxVectorMath\src\;src\tracking\calibration\;src\scenes\eyePlotter\strokes\;src\utils\ofxLeastSquares\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxXmlSettings\libs\;addons\ofxOsc\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\;addons\ofxXmlSettings\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\;src\buttons\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOsc\libs\oscpack\src\ip\;addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\;src\scenes\;addons\ofxOsc\libs\oscpack\src\ip\win32\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOsc\libs\oscpack\src\ip\posix\;addons\ofxOpenCv\libs\opencv\include\opencv2\video\;addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\;addons\ofxOpenCv\libs\opencv\include\opencv2\ts\;addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\;addons\ofxDirList\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\;addons\ofxOpenCv\libs\opencv\include\opencv2\ml\;addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\;src\comm\;src\comm\serial\;src\scenes\chess\;src\scenes\chess\pieces\;" />
+		<Option virtualFolders="addons\;src\;addons\ofxOpenCv\src\;src\scenes\eyePlotter\;addons\ofxOsc\libs\oscpack\src\osc\;addons\ofxOpenCv\libs\opencv\include\opencv\;src\utils\ofxControlPanel\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;src\tracking\;addons\ofxVectorMath\src\;src\tracking\calibration\;src\scenes\eyePlotter\strokes\;src\utils\ofxLeastSquares\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxXmlSettings\libs\;addons\ofxOsc\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\;addons\ofxXmlSettings\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\;src\buttons\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOsc\libs\oscpack\src\ip\;addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\;src\scenes\;addons\ofxOsc\libs\oscpack\src\ip\win32\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOsc\libs\oscpack\src\ip\posix\;addons\ofxOpenCv\libs\opencv\include\opencv2\video\;addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\;addons\ofxOpenCv\libs\opencv\include\opencv2\ts\;addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\;addons\ofxDirList\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\;addons\ofxOpenCv\libs\opencv\include\opencv2\ml\;addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\;src\comm\;src\comm\serial\;src\scenes\chess\;src\scenes\chess\pieces\;src\comm\map\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin/$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -674,6 +674,12 @@
 		</Unit>
 		<Unit filename="src/comm/Operations.h">
 			<Option virtualFolder="src/comm/" />
+		</Unit>
+		<Unit filename="src/comm/map/MachineChessMapper.cpp">
+			<Option virtualFolder="src/comm/map/" />
+		</Unit>
+		<Unit filename="src/comm/map/MachineChessMapper.h">
+			<Option virtualFolder="src/comm/map/" />
 		</Unit>
 		<Unit filename="src/comm/serial/Serial.cpp">
 			<Option virtualFolder="src/comm/serial/" />

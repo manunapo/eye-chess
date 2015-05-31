@@ -40,6 +40,8 @@ ChessBoard::ChessBoard()
     firstSelectedR = -1;
     secondSelectedF = -1;
     secondSelectedR = -1;
+
+    mapper = new MachineChessMapper();
 }
 
 bool ChessBoard::isFree(int f, int r)
@@ -95,6 +97,7 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
                     buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
                     buttons[firstSelectedF][firstSelectedR] = aux;
                     board[firstSelectedF][firstSelectedR] = 0;
+                    mapper->movePieceTo(firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                 }
                 firstSelectedF = -1;
                 firstSelectedR = -1;

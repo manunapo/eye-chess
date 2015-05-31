@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <tchar.h>
 #include <iostream>
@@ -21,6 +22,7 @@ public:
     CommHandler();
     void startTransmission();
     void stopTransmission();
+    Operations* getOperations();
 };
 
 class Wrapper
