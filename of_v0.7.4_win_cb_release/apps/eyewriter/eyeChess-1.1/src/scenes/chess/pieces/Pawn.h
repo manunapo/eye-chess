@@ -14,6 +14,7 @@ public:
             imagePath = "images/PawnW.png";
         else
             imagePath = "images/PawnB.png";
+        isFirstMove = true;
     }
     bool canMove( int** places, int newFile, int newRow);
 };

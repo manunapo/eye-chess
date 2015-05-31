@@ -5,16 +5,14 @@ class Operation
 {
 private:
     char type;
-    float x;
-    float y;
+    float number;
 
 public:
     Operation(char theType);
-    Operation(char theTypem, float nx, float ny);
-    void setCoords(float newX, float newY);
+    Operation(char theTypem, float nn);
+    void setCoords(float newN);
     char getType();
-    float getX();
-    float getY();
+    float getN();
 };
 
 #endif // OPERATION_H_INCLUDED

@@ -16,43 +16,53 @@ DWORD WINAPI check(LPVOID lpParameter)
     Serial* SP = (Serial*) wrapper->SP;
     Operations* Ops = (Operations*) wrapper->Ops;
 
-    char data = 'S';
     int dataLength = sizeof(char);
-    SP->WriteData( &data, dataLength);
 
+    char data = 'S';
+    SP->WriteData( &data, dataLength);
 	int readResult = 0;
+	bool sendY = false;
+    Operation* op;
 
     while(true)
     {
         readResult = SP->ReadData( &data,dataLength);
-        if(readResult == -1)
+        while(readResult == -1)
         {
-            printf("-1 means no data available \n");
+            Sleep(300);
+            cout << " no data " << "\n";
+            readResult = SP->ReadData( &data,dataLength);
         }
-        else
+        while(!Ops->hasOperation())
         {
-            printf("Data read %c \n",data);
-            if(Ops->hasOperation())
+            Sleep(300);
+            cout << " no operation " << "\n";
+        }
+        if(Ops->hasOperation())
+        {
+            op = Ops->getNextOperation();
+            data  = op->getType();
+            if( data != 'C')
             {
-                Operation* op = Ops->getNextOperation();
-                char data = op->getType();
-                if( data != 'C')
+                SP->WriteData( &data, dataLength);
+            }
+            else
+            {
+                int n = op->getN() * 10000;
+                stringstream ss;
+                ss << n;
+                string sn = ss.str();
+                for( int i = 0; i < sn.length(); i++)
                 {
-                    SP->WriteData( &data, dataLength);
+                    SP->WriteData( &sn.at(i), dataLength);
+                    cout << "send: " << sn.at(i) << "\n";
                 }
-                else
-                {
-                    int x = op->getX() * 10000;
-                    int y = op->getY() * 10000;
-                    stringstream ss;
-                    ss << x;
-                    string sx = ss.str();
-                    ss << y;
-                    string sy = ss.str();
-                }
+                data = '.';
+                SP->WriteData( &data, dataLength);
+                cout << "send: " << data << "\n";
             }
         }
-        Sleep(500);
+
     }
 }
 
@@ -61,7 +71,30 @@ void CommHandler::startTransmission()
 	Wrapper* wrapped = new Wrapper(SP, operations);
     checkThreadHandle = CreateThread( 0, 0, check, wrapped, 0, &checkThreadId);
 
-    Operation* op = new Operation( 'C', 50, 50);
+    Operation* op = new Operation( 'Z');
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    op = new Operation( 'C', 200);
+    operations->addOperation(op);
+
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+    op = new Operation( 'C', 0);
+    operations->addOperation(op);
+
+    op = new Operation( 'A');
     operations->addOperation(op);
 }
 

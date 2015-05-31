@@ -8,7 +8,7 @@
 const int speed_motor_x = 150;
 const int speed_motor_y = 70;
 //const float stepSize[2] = {0.26, 0.145}; // mm per step [x, y]
-const float stepSize[2] = { 0.154, 0.258}; // mm per step [x, y]
+const float stepSize[2] = { 0.14820, 0.26329}; // mm per step [x, y]
 
 /************************************************************************/
 /* Pins where the motors are plugged in                                                                     */

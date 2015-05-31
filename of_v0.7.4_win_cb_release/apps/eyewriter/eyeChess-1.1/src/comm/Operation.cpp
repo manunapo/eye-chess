@@ -3,21 +3,18 @@
 Operation::Operation(char theType)
 {
     type = theType;
-    x = 0;
-    y = 0;
+    number = 0;
 }
 
-Operation::Operation(char theType, float nx, float ny)
+Operation::Operation(char theType, float nn)
 {
     type = theType;
-    x = nx;
-    y = ny;
+    number = nn;
 }
 
-void Operation::setCoords(float newX, float newY)
+void Operation::setCoords(float newN)
 {
-    x = newX;
-    y = newY;
+    number = newN;
 }
 
 char Operation::getType()
@@ -25,12 +22,7 @@ char Operation::getType()
     return type;
 }
 
-float Operation::getX()
+float Operation::getN()
 {
-    return x;
-}
-
-float Operation::getY()
-{
-    return y;
+    return number;
 }
