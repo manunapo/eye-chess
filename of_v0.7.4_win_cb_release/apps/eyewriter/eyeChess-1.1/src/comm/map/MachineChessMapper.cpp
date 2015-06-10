@@ -19,15 +19,21 @@ MachineChessMapper::MachineChessMapper()
 
 void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
 {
+    //down magnet
+    ops->addOperation(new Operation('Z'));
+
     ops->addOperation(new Operation('C', BoxToCoord[f][r]->x));
     ops->addOperation(new Operation('C', BoxToCoord[f][r]->y));
 
     //up magnet
-    ops->addOperation(new Operation('Z'));
+    ops->addOperation(new Operation('A'));
 
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->x));
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->y));
 
-    //down magnet
-    ops->addOperation(new Operation('A'));
+}
+
+void MachineChessMapper::endGame()
+{
+    ops->addOperation(new Operation('T'));
 }

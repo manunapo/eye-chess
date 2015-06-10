@@ -19,6 +19,7 @@ protected:
     ButtonStateManager button;
 
     ButtonTrigger boxButtons[8][8];
+    ButtonTrigger endGameButton;
 
     ChessBoard * board;
 
@@ -37,6 +38,7 @@ protected:
     bool sizeChanged();
     void relocateButtons();
     void updateParameters();
+    void endGame();
 
 public:
     void setup();

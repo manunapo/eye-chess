@@ -2,7 +2,7 @@
 
 CommHandler::CommHandler()
 {
-    SP = new Serial("COM3");
+    SP = new Serial("COM5");
     operations = new Operations();
 
     if (SP->IsConnected())

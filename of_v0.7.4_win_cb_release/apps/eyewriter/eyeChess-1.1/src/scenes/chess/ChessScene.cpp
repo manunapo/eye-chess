@@ -23,11 +23,20 @@ void ChessScene::setup()
 
     button.setWaitTime( rate );
 
+    endGameButton.setup("END", 10, 10, BUTTON_WIDTH - 50, BUTTON_HEIGHT);
+    drawableButtons.push_back(&endGameButton);
+    endGameButton.setMaxCounter(buttonCount);
+
     testState = BUTTON_NONE;
 
     updateParameters();
 
     initButtons();
+}
+
+void ChessScene::endGame()
+{
+    board->endGame();
 }
 
 //--------------------------------------------------------------
@@ -82,6 +91,10 @@ void ChessScene::update(float mouseX, float mouseY)
     relocateButtons();
     updateParameters();
 
+    if( endGameButton.update( mx, my) )
+    {
+        endGame();
+    }
 
     for(int i = 0; i < 8; i++)
     {

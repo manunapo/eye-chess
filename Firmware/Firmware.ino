@@ -64,10 +64,10 @@ void loop() {
 		// drawing finished
 		started = false;
 		Serial.read();
-		if(zdown)
+		if(!zdown)
 		{
-			penUp();
-			zdown = false;
+			penDown();
+			zdown = true;
 		}
 		drawLine(0.0, 0.0);
 		resetPositions();

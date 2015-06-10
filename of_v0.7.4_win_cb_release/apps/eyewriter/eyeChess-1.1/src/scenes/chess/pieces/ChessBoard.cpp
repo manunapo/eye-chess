@@ -129,6 +129,11 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
     }
 }
 
+void ChessBoard::endGame()
+{
+    mapper->endGame();
+}
+
 int** ChessBoard::getPlacesMatrix()
 {
     int** places;

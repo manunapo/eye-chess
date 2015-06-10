@@ -26,6 +26,7 @@ public:
     bool isFree(int f, int r);
     string getImage(int f, int r);
     void boxSelected(ButtonTrigger buttons[8][8], int f, int r);
+    void endGame();
 
     //return a matriz with
     //  .0 if the box is free

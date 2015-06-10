@@ -24,4 +24,5 @@ public:
     MachineChessMapper();
 
     void movePieceTo( int f, int r, int newF, int newR);
+    void endGame();
 };
