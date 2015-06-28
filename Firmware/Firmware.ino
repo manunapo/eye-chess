@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "MotorHandler.h"
 
-#define SRATE 115200
+#define SRATE 19200
 
 // used for serial communication
 char inputchars[10];
@@ -16,8 +16,8 @@ boolean zdown;
 boolean sensing;
 const int ldr[8] = {A8,A9,A10,A11,A12,A13,A14,A15};  
 const int vccPin[8] = {22,23,24,25,26,27,28,29};  
-const int MAX = 600;
-const int MIN = 0;
+const int MAX = 500;
+const int MIN = 200;
 int ldrValue;
 int sensorsStates[8][8];
 
@@ -26,8 +26,10 @@ void setup()
 	Serial.begin(SRATE);
 	started = false;
 	zdown = false;
-        sensing = false;
+        sensing = true;
+        initSensors();
 	initMotors();
+
 	//wait for host application to connect
 	while(!Serial.available())
 	{
@@ -80,11 +82,11 @@ void loop()
                             delay( 2000);
                      } 
                }
-               delay(500);     
+               delay(200);     
         }
         else
         {  
-               checkSerial();
+               //checkSerial();
         }
 }
 
@@ -248,40 +250,45 @@ boolean checkSensors(int coords[4])
         int j = 0;
         boolean someSensorChanged = false;
         boolean firstPosFound = false;
-        while( (i < 8) && !someSensorChanged)
-        {
-                digitalWrite( vccPin[i], HIGH);
-                while( (j < 8) && !someSensorChanged)
-                {
-                        ldrValue = analogRead( ldr[j]);  // le o LDR correspondente  
-                        ldrValue = constrain( ldrValue, MIN, MAX); // ajusta valor lido  
-                        ldrValue = map( ldrValue, MIN, MAX, 0, 1);  // ajusta valor lido  
-                        if( sensorsStates[i][j] != ldrValue)
-                        {
-                                if( ldrValue == 1)
-                                {
-                                       coords[2] = i;
-                                       coords[3] = j;  
-                                }
-                                else
-                                {
-                                      coords[0] = i;
-                                      coords[1] = j; 
-                                }
-                                if( firstPosFound)
-                                {
-                                      someSensorChanged = true;     
-                                }
-                                else
-                                {
-                                     firstPosFound = true; 
-                                }
-                        }   
-                        j++;        
-                }
-                digitalWrite( vccPin[i], LOW); 
-                i++;  
-        }
+        for(int i = 0; i < 8; i++)  
+        {  
+              digitalWrite( vccPin[i],HIGH);  
+              for(int j = 0; j < 8; j++)  
+                    {  
+                    ldrValue = analogRead(ldr[j]); 
+                    ldrValue = constrain(ldrValue, MIN, MAX);   
+                    int aux = MAX - MIN / 2;
+                    
+                    if( ldrValue < aux)
+                            ldrValue = 1;
+                    else
+                            ldrValue = 0;
+                            
+                    if( sensorsStates[i][j] != ldrValue)
+                    {
+                            if( ldrValue == 1)
+                            {
+                                   coords[2] = i;
+                                   coords[3] = j;  
+                            }
+                            else
+                            {
+                                  coords[0] = i;
+                                  coords[1] = j; 
+                            }
+                            if( firstPosFound)
+                            {
+                                  someSensorChanged = true;     
+                            }
+                            else
+                            {
+                                 firstPosFound = true; 
+                            }
+                    }  
+              }  
+              digitalWrite( vccPin[i],LOW);  
+        }           
+    
         if( someSensorChanged)
         {
                sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
