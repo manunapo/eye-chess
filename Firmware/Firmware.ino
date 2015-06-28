@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "MotorHandler.h"
 
-#define SRATE 19200
+#define SRATE 115200
 
 // used for serial communication
 char inputchars[10];
@@ -26,7 +26,7 @@ void setup()
 	Serial.begin(SRATE);
 	started = false;
 	zdown = false;
-        sensing = true;
+        sensing = false;
         initSensors();
 	initMotors();
 
@@ -77,16 +77,32 @@ void loop()
                boolean changed = checkSensors( coords);
                if( changed)
                {
-                      while( checkSensors( coords))
+                     delay( 2000);
+                     int coords2[4] = {0,0,0,0};
+                     changed = checkSensors( coords2);
+                     if(changed)
                      {
-                            delay( 2000);
+                           if( (coords[0] == coords2[0]) && 
+                               (coords[1] == coords2[1]) && 
+                               (coords[2] == coords2[2]) && 
+                               (coords[3] == coords2[3]))
+                           {
+                                   sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
+                                   sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
+                                   Serial.write(coords[0]);
+                                   Serial.write(coords[1]);
+                                   Serial.write(coords[2]);
+                                   Serial.write(coords[3]);
+                                   sensing = false;
+                           }   
+                           
                      } 
                }
-               delay(200);     
+               delay(200);    
         }
         else
         {  
-               //checkSerial();
+               checkSerial();
         }
 }
 
@@ -262,11 +278,11 @@ boolean checkSensors(int coords[4])
                     if( ldrValue < aux)
                             ldrValue = 1;
                     else
-                            ldrValue = 0;
+                            ldrValue = 0; 
                             
                     if( sensorsStates[i][j] != ldrValue)
                     {
-                            if( ldrValue == 1)
+                            if( ldrValue)
                             {
                                    coords[2] = i;
                                    coords[3] = j;  
@@ -287,12 +303,6 @@ boolean checkSensors(int coords[4])
                     }  
               }  
               digitalWrite( vccPin[i],LOW);  
-        }           
-    
-        if( someSensorChanged)
-        {
-               sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
-               sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
         }
         return someSensorChanged;   
 }
