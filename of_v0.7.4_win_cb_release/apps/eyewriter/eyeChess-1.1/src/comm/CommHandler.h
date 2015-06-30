@@ -9,17 +9,20 @@
 #include <cstdlib>
 #include "serial/SerialClass.h"
 #include "Operations.h"
+#include "FeedbackHandler.h"
 
 class CommHandler
 {
 private:
     Operations* operations;
     Serial* SP;
+    FeedbackHandler* FH;
+
     DWORD checkThreadId;
     HANDLE checkThreadHandle;
 
 public:
-    CommHandler();
+    CommHandler(FeedbackHandler* fh);
     void startTransmission();
     void stopTransmission();
     Operations* getOperations();
@@ -30,9 +33,12 @@ class Wrapper
 public:
     Serial* SP;
     Operations* Ops;
-    Wrapper(Serial* sp, Operations* ops)
+    FeedbackHandler* FH;
+
+    Wrapper(Serial* sp, Operations* ops, FeedbackHandler* fh)
     {
         SP = sp;
         Ops = ops;
+        FH = fh;
     }
 };

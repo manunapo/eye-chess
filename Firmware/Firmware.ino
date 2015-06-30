@@ -29,7 +29,7 @@ void setup()
         sensing = false;
         initSensors();
 	initMotors();
-
+       
 	//wait for host application to connect
 	while(!Serial.available())
 	{
@@ -93,6 +93,7 @@ void loop()
                                    Serial.write(coords[1]);
                                    Serial.write(coords[2]);
                                    Serial.write(coords[3]);
+                                   Serial.write('@');
                                    sensing = false;
                            }   
                            
@@ -160,6 +161,12 @@ void checkSerial()
         if(Serial.peek() == 'B')
 	{
                 sensing = true;
+                int coords[4] = {0,0,0,0};
+                
+                // update oponent movement
+                checkSensors( coords);
+                sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
+                sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
 		Serial.read(); 
                 Serial.write('@');
 	}else

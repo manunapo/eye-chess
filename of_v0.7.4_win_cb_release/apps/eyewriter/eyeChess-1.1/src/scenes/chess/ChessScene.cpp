@@ -1,4 +1,5 @@
 #include "ChessScene.h"
+#include "ButtonMatrix.cpp"
 
 //switch to gui
 extern int buttonCount;
@@ -9,6 +10,7 @@ extern float ptThreshold;
 void ChessScene::setup()
 {
     board = new ChessBoard();
+    boxButtons = new ButtonMatrix();
 
     lastX = 0;
     lastY = 0;
@@ -100,7 +102,7 @@ void ChessScene::update(float mouseX, float mouseY)
     {
         for(int j = 0; j < 8; j++)
         {
-            if(boxButtons[i][j].update(mx, my))
+            if(boxButtons->get(i, j)->update(mx, my))
             {
                 cout << "selected: " << i << "-" << j;
                 board->boxSelected( boxButtons, i, j);
@@ -148,22 +150,7 @@ void ChessScene::draw()
         }
         black = !black;
     }
-/*
-    ///drawing the grid
-    for(int x = 0; x < 9; x++)
-    {
-        ofLine(iniX + x*chessBoxSize, iniY, iniX + x*chessBoxSize, iniY + w);
-    }
 
-    for(int y = 0; y < 9; y++)
-    {
-        ofLine(iniX, iniY + y*chessBoxSize, iniX + w, iniY + y*chessBoxSize);
-    }
-
-    ofPopStyle();
-    ///end drawing the grid-----
-
-*/
     for(int i = 0; i < drawableButtons.size(); i++)
     {
         drawableButtons[i]->draw();
@@ -226,9 +213,9 @@ void ChessScene::relocateButtons()
         for(int j = 0; j < 8; j++)
         {
             if(board->isFree(i,j))
-                boxButtons[i][j].setup("", iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
+                boxButtons->get(i, j)->setup("", iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
             else
-                boxButtons[i][j].setup("", board->getImage(i,j), iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
+                boxButtons->get(i, j)->setup("", board->getImage(i,j), iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
         }
     }
 }
@@ -239,9 +226,9 @@ void ChessScene::initButtons()
     {
         for(int j = 0; j < 8; j++)
         {
-            boxButtons[i][j].setup("S", iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
-            drawableButtons.push_back(&boxButtons[i][j]);
-            boxButtons[i][j].setMaxCounter(buttonCount);
+            boxButtons->get(i, j)->setup("S", iniX + j*chessBoxSize, iniY + i*chessBoxSize, chessBoxSize, chessBoxSize);
+            drawableButtons.push_back(boxButtons->get(i, j));
+            boxButtons->get(i, j)->setMaxCounter(buttonCount);
         }
     }
 }

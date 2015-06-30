@@ -10,7 +10,9 @@
 #include "ButtonTrigger.h"
 
 #include "BaseScene.h"
+#include "ButtonMatrix.h"
 #include "pieces/ChessBoard.h"
+
 
 class ChessScene : public BaseScene
 {
@@ -18,10 +20,10 @@ protected:
     ButtonState	testState;
     ButtonStateManager button;
 
-    ButtonTrigger boxButtons[8][8];
+    ButtonMatrix* boxButtons;
     ButtonTrigger endGameButton;
 
-    ChessBoard * board;
+    ChessBoard* board;
 
     float lastX;
     float lastY;

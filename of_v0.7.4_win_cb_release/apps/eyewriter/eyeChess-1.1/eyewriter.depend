@@ -6414,7 +6414,7 @@
 	"BaseScene.h"
 	"chess/ChessScene.h"
 
-1433978835 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessscene.h
+1435620724 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessscene.h
 	"ofMain.h"
 	<iostream>
 	"buttonStateManager.h"
@@ -6423,6 +6423,7 @@
 	"ButtonToggle.h"
 	"ButtonTrigger.h"
 	"BaseScene.h"
+	"ButtonMatrix.h"
 	"pieces/ChessBoard.h"
 
 1432729585 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessboard.h
@@ -6463,10 +6464,10 @@
 	"ButtonTrigger.h"
 	"TestApp.h"
 
-1433977551 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.cpp
+1435689944 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.cpp
 	"CommHandler.h"
 
-1433103201 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.h
+1435612883 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\commhandler.h
 	<stdio.h>
 	<tchar.h>
 	<iostream>
@@ -6477,6 +6478,7 @@
 	<cstdlib>
 	"serial/SerialClass.h"
 	"Operations.h"
+	"FeedbackHandler.h"
 
 1431609475 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\serial\serialclass.h
 	<windows.h>
@@ -6492,11 +6494,10 @@
 1431610223 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\serial\serial.cpp
 	"SerialClass.h"
 
-1433102298 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\main.cpp
+1435591473 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\main.cpp
 	"ofMain.h"
 	"TestApp.h"
 	"ofAppGlutWindow.h"
-	"comm/CommHandler.h"
 
 1361276488 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\libs\openframeworks\app\ofappglutwindow.h
 	"ofConstants.h"
@@ -6514,8 +6515,9 @@
 1432729584 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessboard.cpp
 	"ChessBoard.h"
 
-1433978904 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessscene.cpp
+1435620832 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\chessscene.cpp
 	"ChessScene.h"
+	"ButtonMatrix.cpp"
 
 1433010436 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chesspiece.cpp
 	"ChessPiece.h"
@@ -6586,7 +6588,7 @@
 1429827767 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\eyeplotter\strokes\specialpolyline.cpp
 	"SpecialPolyline.h"
 
-1433978880 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.h
+1435620933 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.h
 	<iostream>
 	<string>
 	"ChessPiece.h"
@@ -6598,9 +6600,11 @@
 	"Pawn.h"
 	"ButtonTrigger.h"
 	"comm/map/MachineChessMapper.h"
+	"scenes/chess/ButtonMatrix.h"
 
-1433978873 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.cpp
+1435621152 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\chessboard.cpp
 	"ChessBoard.h"
+	"comm/FeedbackHandler.cpp"
 
 1433009194 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\bishop.cpp
 
@@ -6623,9 +6627,21 @@
 1432734389 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\matrixboard.cpp
 	"MatrixBoard.h"
 
-1433978884 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.h
+1435612792 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.h
 	"comm/CommHandler.h"
+	"comm/FeedbackHandler.h"
 
-1433978888 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.cpp
+1435621343 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.cpp
 	"MachineChessMapper.h"
+
+1435616009 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\feedbackhandler.h
+
+1435617419 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\feedbackhandler.cpp
+	"FeedbackHandler.h"
+
+1435620603 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\buttonmatrix.h
+	"ButtonTrigger.h"
+
+1435619543 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\buttonmatrix.cpp
+	"ButtonMatrix.h"
 

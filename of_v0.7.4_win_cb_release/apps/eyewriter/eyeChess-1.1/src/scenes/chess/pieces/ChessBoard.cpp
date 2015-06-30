@@ -1,4 +1,5 @@
 #include "ChessBoard.h"
+#include "comm/FeedbackHandler.cpp"
 
 ChessBoard::ChessBoard()
 {
@@ -41,7 +42,7 @@ ChessBoard::ChessBoard()
     secondSelectedF = -1;
     secondSelectedR = -1;
 
-    mapper = new MachineChessMapper();
+    mapper = new MachineChessMapper(new FeedbackHandler(this));
 }
 
 bool ChessBoard::isFree(int f, int r)
@@ -54,8 +55,9 @@ string ChessBoard::getImage(int f, int r)
     return board[f][r]->getImage();
 }
 
-void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
+void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
 {
+    buttons = bts;
     if(firstSelectedF != -1)
     {
         secondSelectedF = f;
@@ -74,19 +76,18 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
 
             if(canMove)
             {
-                cout << "caaaaaaaaaan " << endl;
-                ButtonTrigger aux = buttons[secondSelectedF][secondSelectedR];
+                ButtonTrigger* aux = buttons->get( secondSelectedF, secondSelectedR);
                 if(board[secondSelectedF][secondSelectedR] != 0)
                 {
                     bool canEatSecond = board[secondSelectedF][secondSelectedR]->isWhite() != board[firstSelectedF][firstSelectedR]->isWhite();
 
                     if(canEatSecond)
                     {
-                        aux.changeImage("images/Free.png");
+                        aux->changeImage("images/Free.png");
                         board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
                         board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
-                        buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
-                        buttons[firstSelectedF][firstSelectedR] = aux;
+                        buttons->put( buttons->get(firstSelectedF,firstSelectedR), secondSelectedF, secondSelectedR);
+                        buttons->put( aux, firstSelectedF, firstSelectedR);
                         board[firstSelectedF][firstSelectedR] = 0;
                     }
                 }
@@ -94,8 +95,8 @@ void ChessBoard::boxSelected(ButtonTrigger buttons[8][8], int f, int r)
                 {
                     board[secondSelectedF][secondSelectedR] = board[firstSelectedF][firstSelectedR];
                     board[secondSelectedF][secondSelectedR]->updateBox(secondSelectedF, secondSelectedR);
-                    buttons[secondSelectedF][secondSelectedR] = buttons[firstSelectedF][firstSelectedR];
-                    buttons[firstSelectedF][firstSelectedR] = aux;
+                    buttons->put( buttons->get(firstSelectedF,firstSelectedR), secondSelectedF, secondSelectedR);
+                    buttons->put( aux, firstSelectedF, firstSelectedR);
                     board[firstSelectedF][firstSelectedR] = 0;
                     mapper->movePieceTo(firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                 }
@@ -161,4 +162,31 @@ int** ChessBoard::getPlacesMatrix()
         }
     }
     return places;
+}
+
+void ChessBoard::moveFromTo(int fromFile, int fromRow, int toFile, int toRow)
+{
+    ButtonTrigger* aux = buttons->get( toFile, toRow);
+    if(board[toFile][toRow] != 0)
+    {
+        bool canEatSecond = board[toFile][toRow]->isWhite() != board[fromFile][fromRow]->isWhite();
+
+        if(canEatSecond)
+        {
+            aux->changeImage("images/Free.png");
+            board[toFile][toRow] = board[fromFile][fromRow];
+            board[toFile][toRow]->updateBox(toFile, toRow);
+            buttons->put( buttons->get( fromFile, fromRow), toFile, toRow);
+            buttons->put( aux, fromFile, fromRow);
+            board[fromFile][fromRow] = 0;
+        }
+    }
+    else
+    {
+        board[toFile][toRow] = board[fromFile][fromRow];
+        board[toFile][toRow]->updateBox(toFile, toRow);
+        buttons->put( buttons->get( fromFile, fromRow), toFile, toRow);
+        buttons->put( aux, fromFile, fromRow);
+        board[fromFile][fromRow] = 0;
+    }
 }

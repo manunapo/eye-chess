@@ -1,6 +1,6 @@
 #include "MachineChessMapper.h"
 
-MachineChessMapper::MachineChessMapper()
+MachineChessMapper::MachineChessMapper(FeedbackHandler* fh)
 {
     float file = 12.5;
     float row = 12.5;
@@ -12,7 +12,7 @@ MachineChessMapper::MachineChessMapper()
         }
     }
 
-    CommHandler* cm = new CommHandler();
+    CommHandler* cm = new CommHandler(fh);
     cm->startTransmission();
     ops = cm->getOperations();
 }
@@ -30,6 +30,9 @@ void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
 
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->x));
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->y));
+
+    //start sensig
+    ops->addOperation(new Operation('B'));
 
 }
 

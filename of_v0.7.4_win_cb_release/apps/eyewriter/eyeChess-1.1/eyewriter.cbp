@@ -663,6 +663,14 @@
 		<Unit filename="src/comm/CommHandler.h">
 			<Option virtualFolder="src/comm/" />
 		</Unit>
+		<Unit filename="src/comm/FeedbackHandler.cpp">
+			<Option virtualFolder="src/comm/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/comm/FeedbackHandler.h">
+			<Option virtualFolder="src/comm/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/comm/Operation.cpp">
 			<Option virtualFolder="src/comm/" />
 		</Unit>
@@ -710,6 +718,14 @@
 		</Unit>
 		<Unit filename="src/scenes/TestingScene.h">
 			<Option virtualFolder="src/scenes" />
+		</Unit>
+		<Unit filename="src/scenes/chess/ButtonMatrix.cpp">
+			<Option virtualFolder="src/scenes/chess/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/scenes/chess/ButtonMatrix.h">
+			<Option virtualFolder="src/scenes/chess/" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="src/scenes/chess/ChessScene.cpp">
 			<Option virtualFolder="src/scenes/chess/" />

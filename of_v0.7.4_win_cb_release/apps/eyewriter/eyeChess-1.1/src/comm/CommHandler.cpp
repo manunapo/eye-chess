@@ -1,9 +1,10 @@
 #include "CommHandler.h"
 
-CommHandler::CommHandler()
+CommHandler::CommHandler(FeedbackHandler* fh)
 {
     SP = new Serial("COM5");
     operations = new Operations();
+    FH = fh;
 
     if (SP->IsConnected())
 		printf("We're connected \n");
@@ -15,6 +16,7 @@ DWORD WINAPI check(LPVOID lpParameter)
     Wrapper* wrapper = (Wrapper*) lpParameter;
     Serial* SP = (Serial*) wrapper->SP;
     Operations* Ops = (Operations*) wrapper->Ops;
+    FeedbackHandler* f = (FeedbackHandler*) wrapper->FH;
 
     int dataLength = sizeof(char);
 
@@ -23,6 +25,10 @@ DWORD WINAPI check(LPVOID lpParameter)
 	int readResult = 0;
 	bool sendY = false;
     Operation* op;
+
+    bool sensing = false;
+    int oponentMove[4];
+    int pos = 0;
 
     while(true)
     {
@@ -33,132 +39,67 @@ DWORD WINAPI check(LPVOID lpParameter)
             cout << " no data " << "\n";
             readResult = SP->ReadData( &data,dataLength);
         }
-        while(!Ops->hasOperation())
+        if(sensing)
         {
-            Sleep(300);
-            cout << " no operation " << "\n";
-        }
-        if(Ops->hasOperation())
-        {
-            op = Ops->getNextOperation();
-            data  = op->getType();
-            if( data != 'C')
+
+            if((data != '@') && (data != '%'))
             {
-                SP->WriteData( &data, dataLength);
+                oponentMove[pos++] = (int) data;
+                cout << " move: " << oponentMove[pos-1] << "\n";
             }
-            else
+            if( pos == 4)
             {
-                int n = op->getN() * 10000;
-                stringstream ss;
-                ss << n;
-                string sn = ss.str();
-                for( int i = 0; i < sn.length(); i++)
+                f->informMove( oponentMove[0], oponentMove[1], oponentMove[2], oponentMove[3]);
+                cout << "informing \n";
+                pos = 0;
+                sensing = false;
+            }
+        }
+        else
+        {
+            while(!Ops->hasOperation())
+            {
+                Sleep(300);
+                cout << " no operation " << "\n";
+            }
+            if(Ops->hasOperation())
+            {
+                op = Ops->getNextOperation();
+                data  = op->getType();
+                if( data != 'C')
                 {
-                    SP->WriteData( &sn.at(i), dataLength);
-                    cout << "send: " << sn.at(i) << "\n";
+                    SP->WriteData( &data, dataLength);
+                    if( data == 'B')
+                    {
+                        sensing = true;
+                    }
                 }
-                data = '.';
-                SP->WriteData( &data, dataLength);
-                cout << "send: " << data << "\n";
+                else
+                {
+                    int n = op->getN() * 10000;
+                    stringstream ss;
+                    ss << n;
+                    string sn = ss.str();
+                    for( int i = 0; i < sn.length(); i++)
+                    {
+                        SP->WriteData( &sn.at(i), dataLength);
+                        cout << "send: " << sn.at(i) << "\n";
+                    }
+                    data = '.';
+                    SP->WriteData( &data, dataLength);
+                    cout << "send: " << data << "\n";
+                }
             }
         }
+
 
     }
 }
 
 void CommHandler::startTransmission()
 {
-	Wrapper* wrapped = new Wrapper(SP, operations);
+	Wrapper* wrapped = new Wrapper(SP, operations, FH);
     checkThreadHandle = CreateThread( 0, 0, check, wrapped, 0, &checkThreadId);
-/*
-    Operation* op = new Operation( 'Z');
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-/*
-    Operation* op = new Operation( 'Z');
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 25);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 25);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 50);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 50);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    //----
-    op = new Operation( 'C', 75);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 75);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 100);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 100);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    //--
-    op = new Operation( 'C', 125);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 125);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 150);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 150);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-    //--
-    op = new Operation( 'C', 175);
-    operations->addOperation(op);
-    op = new Operation( 'C', 0);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 175);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-    op = new Operation( 'C', 200);
-    operations->addOperation(op);
-    //--
-
-    op = new Operation( 'A');
-    operations->addOperation(op);*/
 }
 
 void CommHandler::stopTransmission()

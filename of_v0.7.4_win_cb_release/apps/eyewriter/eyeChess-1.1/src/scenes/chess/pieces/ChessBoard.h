@@ -10,8 +10,10 @@
 #include "Pawn.h"
 #include "ButtonTrigger.h"
 #include "comm/map/MachineChessMapper.h"
+#include "scenes/chess/ButtonMatrix.h"
 
-using namespace std;
+class FeedbackHandler;
+
 class ChessBoard
 {
 protected:
@@ -21,12 +23,15 @@ protected:
     int secondSelectedF;
     int secondSelectedR;
     MachineChessMapper* mapper;
+    ButtonMatrix* buttons;
+
 public:
     ChessBoard();
     bool isFree(int f, int r);
     string getImage(int f, int r);
-    void boxSelected(ButtonTrigger buttons[8][8], int f, int r);
+    void boxSelected(ButtonMatrix* bts,int f, int r);
     void endGame();
+    void moveFromTo(int fromFile, int fromRow, int toFile, int toRow);
 
     //return a matriz with
     //  .0 if the box is free
@@ -34,3 +39,4 @@ public:
     //  .2 if the box has a black piece
     int** getPlacesMatrix();
 };
+

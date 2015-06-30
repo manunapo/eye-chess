@@ -60,7 +60,7 @@ void initMotors(){
 	poss[1] = 0;
 	
 	motor_z.attach(10);
-	motor_z.write(80);
+	motor_z.write(87);
 }
 
 void resetPositions(){
@@ -180,5 +180,5 @@ void penDown()
 void penUp()
 {
         release();
-	motor_z.write(80);
+	motor_z.write(87);
 }

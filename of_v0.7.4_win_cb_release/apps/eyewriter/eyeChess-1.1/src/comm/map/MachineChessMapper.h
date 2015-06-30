@@ -1,4 +1,5 @@
 #include "comm/CommHandler.h"
+#include "comm/FeedbackHandler.h"
 
 class Coord
 {
@@ -21,8 +22,7 @@ private:
     Operations* ops;
 
 public:
-    MachineChessMapper();
-
+    MachineChessMapper(FeedbackHandler* fh);
     void movePieceTo( int f, int r, int newF, int newR);
     void endGame();
 };
