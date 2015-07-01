@@ -3,6 +3,7 @@
 
 ChessBoard::ChessBoard()
 {
+    turn = true;
     bool white = true;
     bool black = false;
     board[0][0] = new Rook(0, 0 ,white);
@@ -89,6 +90,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
                         buttons->put( buttons->get(firstSelectedF,firstSelectedR), secondSelectedF, secondSelectedR);
                         buttons->put( aux, firstSelectedF, firstSelectedR);
                         board[firstSelectedF][firstSelectedR] = 0;
+                        mapper->movePieceTo(firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                     }
                 }
                 else
@@ -104,6 +106,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
                 firstSelectedR = -1;
                 secondSelectedF = -1;
                 secondSelectedR = -1;
+                turn = false;
             }
         }
         else
@@ -189,4 +192,10 @@ void ChessBoard::moveFromTo(int fromFile, int fromRow, int toFile, int toRow)
         buttons->put( aux, fromFile, fromRow);
         board[fromFile][fromRow] = 0;
     }
+    turn = true;
+}
+
+bool ChessBoard::hasTurn()
+{
+    return turn;
 }

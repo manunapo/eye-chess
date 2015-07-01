@@ -31,6 +31,9 @@ void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->x));
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->y));
 
+    cout << f << r << newF << newR;
+    ops->setLastMove(f,r,newF,newR);
+
     //start sensig
     ops->addOperation(new Operation('B'));
 

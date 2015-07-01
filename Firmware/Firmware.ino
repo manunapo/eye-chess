@@ -59,10 +59,17 @@ void initSensors()
         {
                 for( int j = 0; j < 8; j++)
                 {
+                        // empty
                         state = 0;
-                        if( (i < 2) || (i > 5))
+                        if(i < 2)
                         {
+                               // white
                                state = 1; 
+                        }
+                        if(i > 5)
+                        {
+                               // black
+                               state = 2; 
                         }
                         sensorsStates[i][j] = state;
                 } 
@@ -74,21 +81,24 @@ void loop()
         if(sensing)
         {
                int coords[4] = {0,0,0,0};
-               boolean changed = checkSensors( coords);
+               int cantChanged = checkSensors( coords);
+               boolean changed = (cantChanged != 0);
+               
+               
                if( changed)
                {
-                     delay( 2000);
+                     delay( 1500);
                      int coords2[4] = {0,0,0,0};
-                     changed = checkSensors( coords2);
-                     if(changed)
+                     cantChanged = checkSensors( coords2);
+                     if((cantChanged == 2) && (sensorsStates[coords[0]][coords[1]] == 2))
                      {
                            if( (coords[0] == coords2[0]) && 
                                (coords[1] == coords2[1]) && 
                                (coords[2] == coords2[2]) && 
                                (coords[3] == coords2[3]))
                            {
-                                   sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
-                                   sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
+                                   sensorsStates[coords[0]][coords[1]] = 0;
+                                   sensorsStates[coords[2]][coords[3]] = 2;
                                    Serial.write(coords[0]);
                                    Serial.write(coords[1]);
                                    Serial.write(coords[2]);
@@ -97,6 +107,18 @@ void loop()
                                    sensing = false;
                            }   
                            
+                     }
+                      else
+                     {
+                            if((cantChanged == 1) && (sensorsStates[coords[0]][coords[1]] == 1))
+                            {
+                                   if( (coords[0] == coords2[0]) && 
+                                       (coords[1] == coords2[1]))
+                                   {
+                                           sensorsStates[coords[0]][coords[1]] = 0;
+                                   }
+                           
+                            }
                      } 
                }
                delay(200);    
@@ -160,14 +182,24 @@ void checkSerial()
 	}else
         if(Serial.peek() == 'B')
 	{
+                Serial.read(); 
                 sensing = true;
                 int coords[4] = {0,0,0,0};
+                while(Serial.available() < 1);
+                coords[0] = convertCharToInt(Serial.read());
+                while(Serial.available() < 1);
+                coords[1] = convertCharToInt(Serial.read());
+                while(Serial.available() < 1);
+                coords[2] = convertCharToInt(Serial.read());
+                while(Serial.available() < 1);
+                coords[3] = convertCharToInt(Serial.read());     
                 
-                // update oponent movement
-                checkSensors( coords);
+                //origin ever changes, but destination depends if its empty or not.
                 sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
                 sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
-		Serial.read(); 
+                /*if(sensorsStates[coords[2]][coords[3]] == 0)
+                        sensorsStates[coords[2]][coords[3]] = 1;*/
+		
                 Serial.write('@');
 	}else
 	if(started)
@@ -187,6 +219,30 @@ void checkSerial()
 		// clear it
 		Serial.read();
 	}
+}
+
+int convertCharToInt(char c)
+{
+        if(c == '0')
+               return 0;
+        if(c == '1')
+               return 1;
+        if(c == '2')
+               return 2;
+        if(c == '3')
+               return 3;
+        if(c == '4')
+               return 4;
+        if(c == '5')
+               return 5;
+        if(c == '6')
+               return 6;
+        if(c == '7')
+               return 7;
+        if(c == '8')
+               return 8;
+        if(c == '9')
+               return 9;     
 }
 
 void reBuildCoordenate()
@@ -267,7 +323,8 @@ void reBuildCoordenate()
         }
 }
 
-boolean checkSensors(int coords[4])
+// returns 0 if no change, 1 if 1 position change, 2 if 2 positions change.
+int checkSensors(int coords[4])
 {
         int i = 0;
         int j = 0;
@@ -286,8 +343,11 @@ boolean checkSensors(int coords[4])
                             ldrValue = 1;
                     else
                             ldrValue = 0; 
-                            
-                    if( sensorsStates[i][j] != ldrValue)
+                    
+                    int state = 1;
+                    if( sensorsStates[i][j] == 0) 
+                          state = 0;
+                    if( state != ldrValue)
                     {
                             if( ldrValue)
                             {
@@ -311,5 +371,9 @@ boolean checkSensors(int coords[4])
               }  
               digitalWrite( vccPin[i],LOW);  
         }
-        return someSensorChanged;   
+        if( someSensorChanged)
+              return 2;
+        if( firstPosFound)
+              return 1;
+        return 0; 
 }

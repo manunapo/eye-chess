@@ -22,6 +22,10 @@ protected:
     int firstSelectedR;
     int secondSelectedF;
     int secondSelectedR;
+
+    // true if computer has turn, false if human has.
+    bool turn;
+
     MachineChessMapper* mapper;
     ButtonMatrix* buttons;
 
@@ -32,6 +36,7 @@ public:
     void boxSelected(ButtonMatrix* bts,int f, int r);
     void endGame();
     void moveFromTo(int fromFile, int fromRow, int toFile, int toRow);
+    bool hasTurn();
 
     //return a matriz with
     //  .0 if the box is free

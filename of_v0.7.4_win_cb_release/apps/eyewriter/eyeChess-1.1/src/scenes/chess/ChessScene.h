@@ -1,5 +1,8 @@
 #pragma once
 
+#define OPTIONS_BAR_WIDTH 150
+#define OPTIONS_BAR_BORDER 2
+
 #include "ofMain.h"
 #include <iostream>
 #include "buttonStateManager.h"
@@ -25,6 +28,9 @@ protected:
 
     ChessBoard* board;
 
+    ofTrueTypeFont playerOne;
+    ofTrueTypeFont playerTwo;
+
     float lastX;
     float lastY;
 
@@ -41,6 +47,7 @@ protected:
     void relocateButtons();
     void updateParameters();
     void endGame();
+    void buildOptionsBar();
 
 public:
     void setup();

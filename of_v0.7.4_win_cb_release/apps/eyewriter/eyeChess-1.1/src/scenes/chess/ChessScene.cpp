@@ -25,15 +25,18 @@ void ChessScene::setup()
 
     button.setWaitTime( rate );
 
-    endGameButton.setup("END", 10, 10, BUTTON_WIDTH - 50, BUTTON_HEIGHT);
+    updateParameters();
+
+    endGameButton.setup("END", 0, 0, 50, 50);
     drawableButtons.push_back(&endGameButton);
     endGameButton.setMaxCounter(buttonCount);
 
     testState = BUTTON_NONE;
 
-    updateParameters();
-
     initButtons();
+
+    playerOne.loadFont("fonts/arial.ttf", 20);
+    playerTwo.loadFont("fonts/arial.ttf", 20);
 }
 
 void ChessScene::endGame()
@@ -105,11 +108,13 @@ void ChessScene::update(float mouseX, float mouseY)
             if(boxButtons->get(i, j)->update(mx, my))
             {
                 cout << "selected: " << i << "-" << j;
-                board->boxSelected( boxButtons, i, j);
+                if(board->hasTurn())
+                {
+                    board->boxSelected( boxButtons, i, j);
+                }
             }
         }
     }
-
 }
 
 //--------------------------------------------------------------
@@ -120,12 +125,21 @@ void ChessScene::draw()
 
     ofPushStyle();
     ofFill();
+    ofSetColor(168,130,79);
     ofRect(0,0, rectW, rectH);
 
+
     if(iniY == 0)
+    {
+        ofSetColor(224,180,121);
+        ofSetColor(168,130,79);
         ofRect(iniX + w,iniY,rectW,rectH);
+    }
     else
+    {
         ofRect(iniX, iniY + h,rectW,rectH);
+    }
+
     ofPopStyle();
 
     ofPushStyle();
@@ -143,7 +157,7 @@ void ChessScene::draw()
             }
             else
             {
-                ofSetColor(200, 200, 200);
+                ofSetColor(242, 230, 213);
             }
             ofRect( iniX + x*chessBoxSize, iniY + y*chessBoxSize, chessBoxSize, chessBoxSize);
             black = !black;
@@ -180,11 +194,13 @@ void ChessScene::draw()
 
     ofPopStyle();
 
+    buildOptionsBar();
+
 }
 
 void ChessScene::updateParameters()
 {
-    w = ofGetWidth();
+    w = ofGetWidth() - OPTIONS_BAR_WIDTH;
     h = ofGetHeight();
 
     if(w < h)
@@ -231,4 +247,31 @@ void ChessScene::initButtons()
             boxButtons->get(i, j)->setMaxCounter(buttonCount);
         }
     }
+}
+
+void ChessScene::buildOptionsBar()
+{
+    float auxX = ofGetWidth() - OPTIONS_BAR_WIDTH;
+
+    ofSetColor(0,0,0);
+    ofRect(auxX, 0, OPTIONS_BAR_WIDTH, ofGetHeight());
+    ofSetColor(128,97,56);
+    ofRect(auxX+OPTIONS_BAR_BORDER, OPTIONS_BAR_BORDER, OPTIONS_BAR_WIDTH - OPTIONS_BAR_BORDER*2, ofGetHeight()-OPTIONS_BAR_BORDER*2);
+
+    ofSetColor(0,0,0);
+    playerOne.drawString("PLAYER 1", auxX + 10, ofGetHeight() / 8);
+    if(board->hasTurn())
+        ofFill();
+    else
+        ofNoFill();
+    ofCircle( auxX + OPTIONS_BAR_WIDTH / 2, ofGetHeight() / 8 + 35 , 20);
+
+
+
+    playerTwo.drawString("PLAYER 2", auxX + 10, ofGetHeight() / 8 * 7);
+    if(!board->hasTurn())
+        ofFill();
+    else
+        ofNoFill();
+    ofCircle( auxX + OPTIONS_BAR_WIDTH / 2, ofGetHeight() / 8 * 7 + 35 , 20);
 }

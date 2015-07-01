@@ -71,6 +71,35 @@ DWORD WINAPI check(LPVOID lpParameter)
                     SP->WriteData( &data, dataLength);
                     if( data == 'B')
                     {
+                        stringstream ss, ss1, ss2, ss3;
+
+                        int moveAux[4] = {0,0,0,0};
+                        Ops->getLastMove(moveAux);
+
+                        ss << moveAux[0];
+                        string sn = ss.str();
+                        cout << "string: " << sn << "\n";
+                        data = sn.at(0);
+                        SP->WriteData( &data, dataLength);
+
+                        ss1 << moveAux[1];
+                        sn = ss1.str();
+                        cout << "string: " << sn << "\n";
+                        data = sn.at(0);
+                        SP->WriteData( &data, dataLength);
+
+                        ss2 << moveAux[2];
+                        sn = ss2.str();
+                        cout << "string: " << sn << "\n";
+                        data = sn.at(0);
+                        SP->WriteData( &data, dataLength);
+
+                        ss3 << moveAux[3];
+                        sn = ss3.str();
+                        cout << "string: " << sn << "\n";
+                        data = sn.at(0);
+                        SP->WriteData( &data, dataLength);
+
                         sensing = true;
                     }
                 }
