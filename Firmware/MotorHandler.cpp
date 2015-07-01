@@ -2,11 +2,13 @@
 #include "AFMotor.h"
 #include "Servo.h"
 
+#define STEP_TYPE INTERLEAVE
+
 /************************************************************************/
 /* Motor's calibration                                                                     */
 /************************************************************************/
-const int speed_motor_x = 150;
-const int speed_motor_y = 70;
+const int speed_motor_x = 62;
+const int speed_motor_y = 20;
 //const float stepSize[2] = {0.26, 0.145}; // mm per step [x, y]
 const float stepSize[2] = { 0.14820, 0.26329}; // mm per step [x, y]
 
@@ -23,8 +25,8 @@ const int pins_z[2] = {2, 3};
 // to motor port #1 (M1 and M2)
 //AF_Stepper motor_x(48, 2);
 //AF_Stepper motor_y(24, 1);
-AF_Stepper motor_x(24, 2);
-AF_Stepper motor_y(48, 1);
+AF_Stepper motor_x(200, 2);
+AF_Stepper motor_y(200, 1);
 /*
 * Z axis, handle with a micro servo.
 * servo1.attach(10) for initialization.
@@ -60,7 +62,7 @@ void initMotors(){
 	poss[1] = 0;
 	
 	motor_z.attach(10);
-	motor_z.write(87);
+	motor_z.write(90);
 }
 
 void resetPositions(){
@@ -81,18 +83,18 @@ void oneStep(int m, int dir){
 		poss[m]++;
 		posmm[m] += stepSize[m];
 		if(m == 0)
-		motor_x.step(1, FORWARD, INTERLEAVE);
+		motor_x.step(1, FORWARD, STEP_TYPE);
 		if(m == 1)
-		motor_y.step(1, FORWARD, INTERLEAVE);
+		motor_y.step(1, FORWARD, STEP_TYPE);
 	}
 	else
 	{
 		poss[m]--;
 		posmm[m] -= stepSize[m];
 		if(m == 0)
-		motor_x.step(1, BACKWARD, INTERLEAVE);
+		motor_x.step(1, BACKWARD, STEP_TYPE);
 		if(m == 1)
-		motor_y.step(1, BACKWARD, INTERLEAVE);
+		motor_y.step(1, BACKWARD, STEP_TYPE);
 	}
 
 }

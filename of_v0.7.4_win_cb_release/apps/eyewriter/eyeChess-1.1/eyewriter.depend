@@ -6488,7 +6488,7 @@
 1433080734 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operation.cpp
 	"Operation.h"
 
-1435703645 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operations.cpp
+1435758486 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\operations.cpp
 	"Operations.h"
 
 1431610223 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\serial\serial.cpp
@@ -6627,7 +6627,7 @@
 1432734389 source:c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\scenes\chess\pieces\matrixboard.cpp
 	"MatrixBoard.h"
 
-1435612792 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.h
+1435792750 c:\users\manuel\desktop\eye-chess\of_v0.7.4_win_cb_release\apps\eyewriter\eyechess-1.1\src\comm\map\machinechessmapper.h
 	"comm/CommHandler.h"
 	"comm/FeedbackHandler.h"
 
