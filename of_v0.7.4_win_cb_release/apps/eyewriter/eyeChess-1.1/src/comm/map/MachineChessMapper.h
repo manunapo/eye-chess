@@ -20,6 +20,7 @@ private:
     //Chess box mapping: each position in the matrix has a hardware  coordinate.
     Coord* BoxToCoord[8][8];
     Operations* ops;
+    float lastY;
 
 public:
     MachineChessMapper(FeedbackHandler* fh);

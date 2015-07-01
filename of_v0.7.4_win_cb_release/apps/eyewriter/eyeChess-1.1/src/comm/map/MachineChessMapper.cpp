@@ -15,12 +15,16 @@ MachineChessMapper::MachineChessMapper(FeedbackHandler* fh)
     CommHandler* cm = new CommHandler(fh);
     cm->startTransmission();
     ops = cm->getOperations();
+    lastY = 0;
 }
 
 void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
 {
     //down magnet
     ops->addOperation(new Operation('Z'));
+
+    ops->addOperation(new Operation('C', BoxToCoord[f][r]->x));
+    ops->addOperation(new Operation('C', lastY));
 
     ops->addOperation(new Operation('C', BoxToCoord[f][r]->x));
     ops->addOperation(new Operation('C', BoxToCoord[f][r]->y));
@@ -31,7 +35,8 @@ void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->x));
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->y));
 
-    cout << f << r << newF << newR;
+    lastY = BoxToCoord[newF][newR]->y;
+
     ops->setLastMove(f,r,newF,newR);
 
     //start sensig
