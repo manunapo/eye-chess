@@ -46,6 +46,8 @@ void setup()
 
 void initSensors()
 {
+        pinMode(49, OUTPUT);
+        digitalWrite(49, LOW);
         pinMode(vccPin[0], OUTPUT);   
         pinMode(vccPin[1], OUTPUT); 
         pinMode(vccPin[2], OUTPUT);   
@@ -86,7 +88,8 @@ void loop()
                
                
                if( changed)
-               {
+               {           
+                     digitalWrite(49, LOW);
                      delay( 1500);
                      int coords2[4] = {0,0,0,0};
                      cantChanged = checkSensors( coords2);
@@ -105,7 +108,10 @@ void loop()
                                    Serial.write(coords[3]);
                                    Serial.write('@');
                                    sensing = false;
-                           }   
+                                   digitalWrite(49, LOW);
+                           }  
+                          else 
+                       digitalWrite(49, HIGH); 
                            
                      }
                       else
@@ -119,7 +125,8 @@ void loop()
                                    }
                            
                             }
-                     } 
+                       digitalWrite(49, HIGH); 
+                     }
                }
                delay(200);    
         }
@@ -184,6 +191,7 @@ void checkSerial()
 	{
                 Serial.read(); 
                 sensing = true;
+                digitalWrite(49, HIGH);
                 int coords[4] = {0,0,0,0};
                 while(Serial.available() < 1);
                 coords[0] = convertCharToInt(Serial.read());
@@ -195,10 +203,8 @@ void checkSerial()
                 coords[3] = convertCharToInt(Serial.read());     
                 
                 //origin ever changes, but destination depends if its empty or not.
-                sensorsStates[coords[0]][coords[1]] = !sensorsStates[coords[0]][coords[1]];
-                sensorsStates[coords[2]][coords[3]] = !sensorsStates[coords[2]][coords[3]];
-                /*if(sensorsStates[coords[2]][coords[3]] == 0)
-                        sensorsStates[coords[2]][coords[3]] = 1;*/
+                sensorsStates[coords[0]][coords[1]] = 0;
+                sensorsStates[coords[2]][coords[3]] = 1;
 		
                 Serial.write('@');
 	}else
