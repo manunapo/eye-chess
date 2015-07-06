@@ -20,7 +20,7 @@ void TestApp::setup()
 
     ofSetVerticalSync(true);
 
-    mode = MODE_CHESS;
+    mode = MODE_TRACKING;
 
     TM.setup();
     CM.setup();
@@ -89,19 +89,6 @@ void TestApp::update()
         eyeSmoothed.y = mouseY;
     }
 
-    if( mode == MODE_DRAW )
-    {
-        ofPoint pt = eyeSmoothed;
-        eyeApp.update( pt.x, pt.y);
-    }
-
-
-    if (mode == MODE_TEST)
-    {
-        ofPoint pt = eyeSmoothed;
-        testScene.update(pt.x, pt.y);
-    }
-
     if( mode == MODE_CHESS)
     {
          ofPoint pt = eyeSmoothed;
@@ -120,15 +107,13 @@ void TestApp::draw()
 
     if (mode == MODE_TRACKING)			TM.draw();
     if (mode == MODE_CALIBRATING)		CM.draw();
-    if (mode == MODE_TEST)				testScene.draw();
-    if (mode == MODE_DRAW )				eyeApp.draw();
     if (mode == MODE_CHESS )			chessScene.draw();
 
 
     // draw a green dot to see how good the tracking is:
     if (CM.fitter.bBeenFit || bMouseSimulation)
     {
-        if( mode != MODE_DRAW && mode != MODE_CHESS)
+        if( mode != MODE_CHESS)
         {
             ofSetColor(0,255,0,120);
             ofFill();
@@ -149,7 +134,7 @@ void TestApp::keyPressed(int key)
 
     case	OF_KEY_RETURN:
         mode ++;
-        mode %= 5; // number of modes;
+        mode %= 3; // number of modes;
         break;
     case	'f':
     case	'F':
@@ -181,7 +166,6 @@ void TestApp::mouseDragged(int x, int y, int button)
 
     if (mode == MODE_TRACKING)			TM.mouseDragged(x, y, button);
     if (mode == MODE_CALIBRATING)		CM.mouseDragged(x, y, button);
-    if (mode == MODE_TEST)              testScene.mouseDragged(x, y, button);
 }
 
 //--------------------------------------------------------------

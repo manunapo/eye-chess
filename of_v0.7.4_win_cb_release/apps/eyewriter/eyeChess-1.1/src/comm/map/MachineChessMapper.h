@@ -24,6 +24,6 @@ private:
 
 public:
     MachineChessMapper(FeedbackHandler* fh);
-    void movePieceTo( int f, int r, int newF, int newR);
+    void movePieceTo(bool isKnight, int f, int r, int newF, int newR);
     void endGame();
 };

@@ -77,6 +77,11 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
 
             if(canMove)
             {
+                bool isKnight = false;
+                if(Knight* v = dynamic_cast<Knight*>(board[firstSelectedF][firstSelectedR])) {
+                    isKnight = true;
+                }
+                cout << " IS KNIGHT: " << isKnight;
                 ButtonTrigger* aux = buttons->get( secondSelectedF, secondSelectedR);
                 if(board[secondSelectedF][secondSelectedR] != 0)
                 {
@@ -90,7 +95,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
                         buttons->put( buttons->get(firstSelectedF,firstSelectedR), secondSelectedF, secondSelectedR);
                         buttons->put( aux, firstSelectedF, firstSelectedR);
                         board[firstSelectedF][firstSelectedR] = 0;
-                        mapper->movePieceTo(firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
+                        mapper->movePieceTo( isKnight, firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                     }
                 }
                 else
@@ -100,7 +105,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
                     buttons->put( buttons->get(firstSelectedF,firstSelectedR), secondSelectedF, secondSelectedR);
                     buttons->put( aux, firstSelectedF, firstSelectedR);
                     board[firstSelectedF][firstSelectedR] = 0;
-                    mapper->movePieceTo(firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
+                    mapper->movePieceTo( isKnight, firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                 }
                 firstSelectedF = -1;
                 firstSelectedR = -1;
@@ -121,7 +126,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
     }
     else
     {
-        if(!isFree( f, r))
+        if(!isFree( f, r) && board[f][r]->isWhite())
         {
             firstSelectedF = f;
             firstSelectedR = r;

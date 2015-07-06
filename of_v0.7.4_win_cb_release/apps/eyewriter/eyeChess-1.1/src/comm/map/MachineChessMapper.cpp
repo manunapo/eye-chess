@@ -18,7 +18,7 @@ MachineChessMapper::MachineChessMapper(FeedbackHandler* fh)
     lastY = 0;
 }
 
-void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
+void MachineChessMapper::movePieceTo( bool isKnight, int f, int r, int newF, int newR)
 {
     //down magnet
     ops->addOperation(new Operation('Z'));
@@ -32,8 +32,56 @@ void MachineChessMapper::movePieceTo( int f, int r, int newF, int newR)
     //up magnet
     ops->addOperation(new Operation('A'));
 
+    if( isKnight)
+    {
+        float x1 = BoxToCoord[f][r]->x;
+        float x2 = BoxToCoord[newF][newR]->x;
+
+        float y1 = BoxToCoord[f][r]->y;
+        float y2 = BoxToCoord[newF][newR]->y;
+
+        float dY = y1 - y2;
+        float dX = x1 - x2;
+
+        if(dY < 0) dY = dY * -1;
+        if(dX < 0) dX = dX * -1;
+
+        if( dX < dY)
+        {
+            float middleX = 0;
+            if( x2 < x1)
+                middleX = x1 - 12.5;
+            else
+                middleX = x1 + 12.5;
+
+            ops->addOperation(new Operation('C', middleX));
+            ops->addOperation(new Operation('C', y1));
+
+            ops->addOperation(new Operation('C', middleX));
+            ops->addOperation(new Operation('C', y2));
+        }
+        else
+        {
+            float middleY = 0;
+            if( y2 < y1)
+                middleY = y1 - 12.5;
+            else
+                middleY = y1 + 12.5;
+
+            ops->addOperation(new Operation('C', x1));
+            ops->addOperation(new Operation('C', middleY));
+
+            ops->addOperation(new Operation('C', x2));
+            ops->addOperation(new Operation('C', middleY));
+        }
+
+    }
+
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->x));
     ops->addOperation(new Operation('C', BoxToCoord[newF][newR]->y));
+
+    //down magnet
+    ops->addOperation(new Operation('Z'));
 
     lastY = BoxToCoord[newF][newR]->y;
 

@@ -146,14 +146,14 @@ void ChessScene::draw()
     ofSetLineWidth(1.0);
     ofEnableAlphaBlending();
 
-    bool black = true;
+    bool black = false;
     for(int x = 0; x < 8; x++)
     {
         for(int y = 0; y < 8; y++)
         {
             if(black)
             {
-                ofSetColor(20, 20, 20);
+                ofSetColor(89,97,97);
             }
             else
             {
