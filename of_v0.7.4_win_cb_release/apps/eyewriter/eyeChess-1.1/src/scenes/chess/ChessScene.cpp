@@ -153,11 +153,13 @@ void ChessScene::draw()
         {
             if(black)
             {
-                ofSetColor(89,97,97);
+                //ofSetColor(89,97,97);
+                ofSetColor(0,0,0);
             }
             else
             {
-                ofSetColor(242, 230, 213);
+                //ofSetColor(242, 230, 213);
+                ofSetColor(255,255,255);
             }
             ofRect( iniX + x*chessBoxSize, iniY + y*chessBoxSize, chessBoxSize, chessBoxSize);
             black = !black;

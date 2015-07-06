@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="release" />
+	<File name="src\comm\Operation.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="176" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\comm\Operations.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="434" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\ChessBoard.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4818" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="src\comm\map\MachineChessMapper.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2106" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxVectorMath\src\ofxPoint2f.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\ChessPiece.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="896" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="src\comm\serial\Serial.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3845" topLine="99" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\streams.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3143" topLine="52" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\King.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="157" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\BaseScene.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="164" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\Knight.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="253" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\Pawn.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1269" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\chess\pieces\Queen.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="169" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src\scenes\chess\pieces\Rook.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="283" topLine="0" />
@@ -20,9 +85,14 @@
 			<Cursor1 position="501" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Main.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="449" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\retina.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6849" topLine="90" />
 		</Cursor>
 	</File>
 	<File name="src\tracking\calibration\CalibrationFileSaver.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -80,11 +150,6 @@
 			<Cursor1 position="150" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="..\..\..\addons\ofxDirList\src\ofxDirList.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="src\buttons\ButtonToggle.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3043" topLine="114" />
@@ -115,6 +180,16 @@
 			<Cursor1 position="168" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4070" topLine="128" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxDirList\src\ofxDirList.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src\scenes\TestingScene.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="265" topLine="0" />
@@ -123,6 +198,11 @@
 	<File name="src\comm\CommHandler.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="428" topLine="7" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8148" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\chess\ButtonMatrix.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -155,16 +235,6 @@
 			<Cursor1 position="449" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\streams.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3143" topLine="52" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4070" topLine="128" />
-		</Cursor>
-	</File>
 	<File name="src\scenes\chess\pieces\ChessBoard.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="499" topLine="14" />
@@ -173,11 +243,6 @@
 	<File name="src\comm\map\MachineChessMapper.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="482" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8148" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\chess\pieces\ChessPiece.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -200,6 +265,11 @@
 			<Cursor1 position="408" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_gtest.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9516" topLine="148" />
+		</Cursor>
+	</File>
 	<File name="src\scenes\chess\pieces\Pawn.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="394" topLine="0" />
@@ -208,11 +278,6 @@
 	<File name="src\scenes\chess\pieces\Queen.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="403" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="52457" topLine="1547" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\chess\pieces\Rook.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -230,9 +295,14 @@
 			<Cursor1 position="3164" topLine="25" />
 		</Cursor>
 	</File>
-	<File name="src\TestApp.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\TestApp.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="539" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="52457" topLine="1547" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\eyePlotter\strokes\SpecialPolyline.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -325,6 +395,11 @@
 			<Cursor1 position="197" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6785" topLine="244" />
+		</Cursor>
+	</File>
 	<File name="src\comm\FeedbackHandler.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="241" topLine="0" />
@@ -332,82 +407,7 @@
 	</File>
 	<File name="src\scenes\chess\ChessScene.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2460" topLine="91" />
-		</Cursor>
-	</File>
-	<File name="src\comm\Operation.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="176" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\comm\Operations.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="434" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\ChessBoard.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1619" topLine="74" />
-		</Cursor>
-	</File>
-	<File name="src\comm\map\MachineChessMapper.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1226" topLine="24" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxVectorMath\src\ofxPoint2f.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\ChessPiece.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="896" topLine="30" />
-		</Cursor>
-	</File>
-	<File name="src\comm\serial\Serial.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3845" topLine="99" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6785" topLine="244" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\King.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="157" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\BaseScene.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="164" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_gtest.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9516" topLine="148" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\Knight.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="253" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\Pawn.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1269" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\chess\pieces\Queen.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="169" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\retina.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6849" topLine="90" />
+			<Cursor1 position="3394" topLine="139" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
