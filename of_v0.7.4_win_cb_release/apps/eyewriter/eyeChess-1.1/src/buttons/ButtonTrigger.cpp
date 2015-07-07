@@ -3,7 +3,7 @@
  *  openFrameworks
  *
  *  Created by theo on 17/08/2009.
- *  Modifi by Manuel Napoli 26/06/2015
+ *  Modify by Manuel Napoli 26/06/2015
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
@@ -22,8 +22,7 @@ ButtonTrigger::ButtonTrigger()
     numTriggers = 0;
     bFlash = false;
     bHasFont = false;
-    // maxCount = 1.0f;
-    //maxCount = ((testApp *)ofGetAppPtr())->buttonSensitivity;
+    selected = false;
 }
 
 
@@ -175,19 +174,19 @@ void ButtonTrigger::draw(float opacity)
     updateTexture();
 
     opacity = 50;
+    if(selected)
+       opacity = 160;
+
     ofFill();
 
     float pctActive = ofMap(pct, 0.0, 1.5, 0.0, 110.0);
-    //cout <<"pctActive: " << pctActive << endl;
-
-    //pctActive = ofClamp(pctActive, 0, 110.0);
     if( bFlash)
     {
         ofSetColor( 0, 100, 240, opacity);
     }
     else
     {
-        ofSetColor( 120 - pctActive, 120 + pctActive * 2, 120 - pctActive, opacity);
+        ofSetColor( 60 - pctActive, 120 + pctActive * 2, 180 - pctActive, opacity);
     }
 
 
@@ -268,4 +267,9 @@ float ButtonTrigger::getY()
 float ButtonTrigger::getX()
 {
     return x;
+}
+
+void ButtonTrigger::select()
+{
+    selected = !selected;
 }

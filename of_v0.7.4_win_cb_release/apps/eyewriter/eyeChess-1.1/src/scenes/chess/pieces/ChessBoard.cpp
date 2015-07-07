@@ -72,6 +72,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
             {
                 isOtherColor = isOtherColor != board[secondSelectedF][secondSelectedR]->isWhite();
                 canMove = canMove && isOtherColor;
+                //buttons->get( firstSelectedF, firstSelectedR)->select();
                 cout << "Not free" << endl;
             }
 
@@ -107,11 +108,16 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
                     board[firstSelectedF][firstSelectedR] = 0;
                     mapper->movePieceTo( isKnight, firstSelectedF, firstSelectedR, secondSelectedF, secondSelectedR);
                 }
+                buttons->get( secondSelectedF, secondSelectedR)->select();
                 firstSelectedF = -1;
                 firstSelectedR = -1;
                 secondSelectedF = -1;
                 secondSelectedR = -1;
                 turn = false;
+            }
+            else
+            {
+                buttons->get( firstSelectedF, firstSelectedR)->select();
             }
         }
         else
@@ -130,6 +136,7 @@ void ChessBoard::boxSelected(ButtonMatrix* bts, int f, int r)
         {
             firstSelectedF = f;
             firstSelectedR = r;
+            buttons->get( firstSelectedF, firstSelectedR)->select();
         }
         else
         {

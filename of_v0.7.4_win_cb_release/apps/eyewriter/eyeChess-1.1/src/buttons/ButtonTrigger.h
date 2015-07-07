@@ -34,6 +34,8 @@ public:
     void    setFlashLength(float timeF);
     bool    update(float xIn, float yIn);
     void    changeImage(string path);
+    void    select();
+
 
     void    sizeChanged();
     void    draw(float opacity = 255);
@@ -43,6 +45,7 @@ public:
     void    relocate(float newX, float newY);
     int     fromString(const std::string& s);
     void    draw(string s);
+
     int     numTriggers;
     bool    firstTrigger;
 
@@ -62,6 +65,8 @@ public:
     bool    hasLeft;
     string  displayText;
     bool    active;
+
+    bool    selected;
 
     ofTrueTypeFont * font;
     bool    bHasFont;
