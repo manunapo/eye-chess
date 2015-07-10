@@ -16,8 +16,8 @@ boolean zdown;
 boolean sensing;
 const int ldr[8] = {A8,A9,A10,A11,A12,A13,A14,A15};  
 const int vccPin[8] = {22,23,24,25,26,27,28,29};  
-const int MAX = 500;
-const int MIN = 200;
+const int MAX = 600;
+const int MIN = 0;
 int ldrValue;
 int sensorsStates[8][8];
 
@@ -207,6 +207,7 @@ void checkSerial()
                 sensorsStates[coords[2]][coords[3]] = 1;
 		
                 Serial.write('@');
+                delay(1500);
 	}else
 	if(started)
 	{
@@ -345,7 +346,7 @@ int checkSensors(int coords[4])
                     ldrValue = constrain(ldrValue, MIN, MAX);   
                     int aux = MAX - MIN / 2;
                     
-                    if( ldrValue < aux)
+                    if( ldrValue < 150)
                             ldrValue = 1;
                     else
                             ldrValue = 0; 
